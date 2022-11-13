@@ -1,6 +1,6 @@
 # Export Folder
 
-## Helps export all dart files in a directory
+## Helps export all dart files in a directory recursively
 
 ### How to use
 
@@ -8,14 +8,14 @@
 
 ```js
 
-    npm install -g export-folder
+    npm install -g dart-export
 
 ```
 
 #### Export Files
 
 ```js
- 
-    export-folder /** path to directory **/
+
+    dart-export /** path to directory **/
 
 ```

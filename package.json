@@ -1,10 +1,10 @@
 {
-	"name": "export-folder",
+	"name": "dart-export",
 	"engines": {
-		"node": "12"
+		"node": "14"
 	},
 	"version": "0.0.10",
-	"description": "export folder",
+	"description": "export dart folders",
 	"main": "bin/index.js",
 	"scripts": {
 		"start": "node bin/index.js",
@@ -18,12 +18,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Ikxyz/export-folder.git"
+		"url": "https://github.com/Ikxyz/dart-export.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Ikxyz/export-folder.git/issues"
+		"url": "https://github.com/Ikxyz/dart-export.git/issues"
 	},
-	"homepage": "https://github.com/Ikxyz/export-folder.git",
+	"homepage": "https://github.com/Ikxyz/dart-export.git",
 	"keywords": [
 		"dart"
 	],

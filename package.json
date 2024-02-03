@@ -1,9 +1,9 @@
 {
 	"name": "dart-export",
 	"engines": {
-		"node": "14"
+		"node": "18"
 	},
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"description": "export dart folders",
 	"main": "bin/index.js",
 	"scripts": {

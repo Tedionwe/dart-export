@@ -85,7 +85,6 @@ const statExport = async () => {
 
     if (watch) {
         console.log('Watching Directory for changes');
-        let previousFileChange = '';
         _fs.watch(path, { recursive: true, persistent: true }, (event, file) => {
             // console.log("Event: ", event, ". File: ", file);
             exportAll(path, force);

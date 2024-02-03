@@ -7,6 +7,9 @@ const { version } = require("../package.json");
 const fs = _fs.promises;
 
 
+const doesFileNeedChange = (newFilePath: string, content: string) => {
+    return content !== _fs.readFileSync(newFilePath).toString();
+}
 
 
 const exportAll = async (path: string, force: string): Promise<string | undefined> => {
@@ -50,15 +53,20 @@ const exportAll = async (path: string, force: string): Promise<string | undefine
     const filePath = `${path}/_${fileName}${fileExtension}`;
     const content = files.map((e) => `export '${e}';\n`).join('');
 
-    console.log('exported --> ', filePath);
 
+    if (doesFileNeedChange(filePath, content) === false) {
+        // console.log("No change required");
+        return;
+    }
     await _fs.writeFile(filePath, content, _ => _);
+
+    console.log('exported --> ', filePath);
 
     return `./${fileName}/_${fileName}${fileExtension}`;
 }
 
-const statExport = () => {
-    const [_, __, path, force = ""] = process.argv;
+const statExport = async () => {
+    const [_, __, path, ...args] = process.argv;
 
     if (path === "-v" || path === "--version") {
         return console.log('Dart Export version ', version);
@@ -66,11 +74,25 @@ const statExport = () => {
 
     if (!path) return console.log("No Path Provider");
 
+    const force = args.find((e) => e === "-f") ?? '';
+    const watch = args.find((e) => e === "-w") ?? '';
+
     console.log("Exporting")
 
     console.log('export from: ', path);
 
-    exportAll(path, force);
+    await exportAll(path, force);
+
+    if (watch) {
+        console.log('Watching Directory for changes');
+        let previousFileChange = '';
+        _fs.watch(path, { recursive: true, persistent: true }, (event, file) => {
+            // console.log("Event: ", event, ". File: ", file);
+            exportAll(path, force);
+        })
+    }
+
+
 }
 
 statExport();

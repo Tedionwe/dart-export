@@ -1,3 +1,4 @@
 export 'main.dart';
-export './pages/_pages.dart';
-export './widgets/_widgets.dart';
+export 'main.freezed.dart';
+export 'main.g.dart';
+export 'test.dart';

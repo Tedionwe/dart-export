@@ -1,6 +1,7 @@
 # Export Folder
 
-## Helps export all dart files in a directory recursively
+## Description:
+The dart_file_exporter package is a dart package designed to facilitate exporting all Dart files within a directory recursively. It provides a simple and efficient way to traverse a directory structure, identify Dart files, and generate exports for them. This package is particularly useful for projects with complex directory hierarchies containing numerous Dart files that need to be easily accessible from other parts of the project.
 
 ### How to use
 
